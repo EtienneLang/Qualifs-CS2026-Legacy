@@ -27,13 +27,16 @@ public class Metronome {
 
     public Metronome() {
         bpm = 80;
-        estEnCours = true;
+        estEnCours = false;
+
         timer = new Timer((60000/bpm), (ActionEvent e) -> {
-                mChannels[10].noteOn(60, 50);
-                mChannels[10].noteOff(60);
-            });
-            timer.setRepeats(true);
-            timer.start();
+            mChannels[10].noteOn(60, 50);
+            mChannels[10].noteOff(60);
+        });
+        timer.setRepeats(true);
+
+
+
         try {
 
             midiSynth = MidiSystem.getSynthesizer();
